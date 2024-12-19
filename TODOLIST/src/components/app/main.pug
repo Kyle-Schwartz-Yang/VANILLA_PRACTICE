@@ -1,0 +1,12 @@
+
+extends ../shared/settings/template/_template.pug
+
+//-: --------------------------------------BODY
+
+block content
+  div(class='todo-app')
+    h1.todo-app__title To do List 
+    div(class='todo-app__input')
+      input(id='task-app-input' type="text", placeholder='Add a new task')
+      button(id='task-app-button' type="button") Add
+    ul(id='task-app-list' class='task-app__list')

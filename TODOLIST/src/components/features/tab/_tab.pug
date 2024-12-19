@@ -1,0 +1,19 @@
+
+mixin Buttons(props)
+  each item in props
+    button(type='button' class=item.className data-toggle=item.data) #{item.txt}
+
+//- --------------------------------------------------------------------------
+
+
+
+mixin Tab()
+  .tab 
+    .tab__buttons 
+      button(class='tab__button active' type="button" data-toggle='w1') Кнопка 1 
+      button(class='tab__button' type="button" data-toggle='w2') Кнопка 2
+      button(class='tab__button' type="button" data-toggle='w3') Кнопка 3 
+    .tab__contents 
+      p(class='tab__txt active' data-content='w1' id='w1') Контент 1
+      p(class='tab__txt ' data-content='w2' id='w2') Контент 2
+      p(class='tab__txt' data-content='w3' id='w3') Контент 3
