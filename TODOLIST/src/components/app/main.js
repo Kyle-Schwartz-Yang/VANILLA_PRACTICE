@@ -17,6 +17,13 @@ function fnTodoList() {
     <button type="button" class='task-app-button'>Delete</button>
   `;
 
+  // Стилізація виконаної задачи
+  li.addEventListener("click", (e) => {
+    // Якщо клік був по кнопці видалення — не робимо нічого
+    if (e.target.classList.contains("task-app-button")) return;
+    li.classList.toggle("active");
+  });
+
   // Add delete functionality
   const deleteButton = li.querySelector(".task-app-button");
   deleteButton.addEventListener("click", () => li.remove());
