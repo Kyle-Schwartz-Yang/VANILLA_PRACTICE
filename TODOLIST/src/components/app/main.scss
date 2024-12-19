@@ -57,6 +57,7 @@ button:hover {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   color: black;
+  cursor: pointer;
 }
 
 .task-app-item:last-child {
@@ -68,4 +69,14 @@ button:hover {
   border: none;
   color: white;
   cursor: pointer;
+}
+
+.task-app-item.active span {
+  // border: 1px solid red;
+  text-decoration: line-through; /* Перекреслює текст */
+  color: green; /* Змінює колір тексту */
+}
+
+.task-app-item {
+  // border: 1px solid red;
 }
