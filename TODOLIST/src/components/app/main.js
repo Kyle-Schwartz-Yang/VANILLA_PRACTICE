@@ -17,7 +17,7 @@ function fnTodoList() {
     <button type="button" class='task-app-button'>Delete</button>
   `;
 
-  // Стилізація виконаної задачи
+  //+ Додатково: Стилізація виконаної задачи
   li.addEventListener("click", (e) => {
     // Якщо клік був по кнопці видалення — не робимо нічого
     if (e.target.classList.contains("task-app-button")) return;
@@ -35,9 +35,21 @@ function fnTodoList() {
 
 todoButton.addEventListener("click", fnTodoList);
 
+//+ Додатково: додавання завдяки клавіатури
 todoInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") fnTodoList();
 });
+
+const obj = {
+  name: "Jack",
+  age: 25,
+  surname: "Sparrow",
+};
+
+localStorage.setItem("user", JSON.stringify(obj));
+console.log(localStorage.getItem("user"));
+
+const user = JSON.parse(localStorage.getItem("user"));
 
 /*
   Зверни уважу що нам не потрібно, робити код складніше та брати всі кнопки .task-app-button / Коли ми використовуємо li.querySelector тоді 
@@ -49,6 +61,10 @@ todoInput.addEventListener("keypress", (e) => {
         e.target.parentElement.remove();
       });
   });
+...........................................................
+Додаткова умова потрібна для того щоб не було непотрібних операцій з додаванням классу за натиском на кнопку видалення, тому що кнопка видалення
+також знаходится у єлементі.
+if (e.target.classList.contains("task-app-button")) return;
 
 
 */
