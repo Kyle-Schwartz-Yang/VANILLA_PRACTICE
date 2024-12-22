@@ -3,7 +3,7 @@
 
 .header {
   padding: 30px 15px;
-  background-color: $black;
+  background-color: var(--secondory-color);
   text-transform: uppercase;
   color: white;
   @include flexbox(flex, center, center);

@@ -1,0 +1,24 @@
+.darktheme {
+  padding: 3rem 0rem;
+
+  &__button {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  &__description {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    & p {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.darkmode #theme-switch {
+  background-color: #fff;
+  color: #000;
+}

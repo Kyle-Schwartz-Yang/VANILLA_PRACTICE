@@ -16,10 +16,10 @@ html {
 }
 
 body {
-  background-color: #2c2b26;
+  background-color: var(--main-color);
   font-family: $font-face;
   font-size: $f-size-default;
-  color: $white;
+  color: var(--text-color);
 }
 
 .wrapper {
