@@ -2,7 +2,7 @@
 
 .footer {
   padding: 30px 15px;
-  background-color: black;
+  background-color: var(--secondory-color);
   color: #fff;
   text-transform: uppercase;
   @include mix.flexbox(flex, center, center);

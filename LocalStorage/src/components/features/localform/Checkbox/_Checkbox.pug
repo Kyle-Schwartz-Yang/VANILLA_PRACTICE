@@ -1,0 +1,13 @@
+
+
+mixin Checkbox(title)
+  div.checkbox
+    input(type="checkbox" name='subscribe' id='subscribe' class='checkbox__input')
+    label(for="subscribe" class='checkbox__label') #{title}
+      
+
+
+//- 
+  mixin Checkbox(label)
+  input(type='checkbox' id='checkbox-'+label.toLowerCase() name='checkbox-'+label.toLowerCase())
+  label(for='checkbox-'+label.toLowerCase())= label

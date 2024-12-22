@@ -4,6 +4,8 @@ extends ../shared/settings/template/_template.pug
 
 
 include ../features/tab/_tab.pug
+include ../features/darktheme/_darktheme.pug
+include ../features/localform/_localform.pug
 
 
 
@@ -13,9 +15,8 @@ include ../features/tab/_tab.pug
 //-: --------------------------------------BODY
 
 block content
-  div(class='todo-app')
-    h1.todo-app__title To do List 
-    div(class='todo-app__input')
-      input(id='task-app-input' type="text", placeholder='Add a new task' autocomplete='off')
-      button(id='task-app-button' type="button") Add
-    ul(id='task-app-list' class='task-app__list')
+  +darktheme()
+  .second-block
+    +localform()
+    p Lorem, ipsum dolor.
+
