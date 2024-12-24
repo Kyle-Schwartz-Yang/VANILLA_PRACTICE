@@ -3,21 +3,17 @@ extends ../shared/settings/template/_template.pug
 //-: --------------------------------------Наследование шаблона 
 
 
-include ../features/tab/_tab.pug
-
-
-
-
 
 
 //-: --------------------------------------BODY
 
 block content
   div(class='todo-app')
-    h1.todo-app__title To do List 
-    div(class='todo-app__input')
+    h1.todo-app__title To do List
+    //- todo-app__input може бути формою, все інше без змін
+    form(id='todo-form' class='todo-app__input')
       input(id='task-app-input' type="text", placeholder='Add a new task' autocomplete='off')
-      button(id='task-app-button' type="button") Add
+      button(id='task-app-button' type="sumbit") Add
     ul(id='task-app-list' class='task-app__list')
     
-    +Tab()
+    
