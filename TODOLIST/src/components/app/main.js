@@ -1,70 +1,73 @@
 import "./main.scss";
 // ------------------------------------------
-
-const todoList = document.getElementById("task-app-list");
-const todoButton = document.getElementById("task-app-button");
 const todoInput = document.getElementById("task-app-input");
+const todoList = document.getElementById("task-app-list");
+
+const form = document.getElementById("todo-form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fnTodoList();
+});
+
+// todoButton.addEventListener("click", fnTodoList);
+
+let todoArray = JSON.parse(localStorage.getItem("user")) || [];
+console.log(todoArray);
+
+updateTodoList();
 
 function fnTodoList() {
-  const taskText = todoInput.value.trim();
-  if (taskText === "") return;
+  const inputTxt = todoInput.value.trim();
+  if (inputTxt === "") return; // if input is empty
 
-  const li = document.createElement("li");
-  li.classList.add("task-app-item");
+  const newTask = {
+    id: Date.now(),
+    text: inputTxt,
+    isDone: false,
+  };
 
-  li.innerHTML = `
-    <span>${taskText}</span>
+  todoArray.push(newTask); // add new task to array
+
+  createTodoItem(newTask); // add new task to list
+
+  todoInput.value = ""; // clear input
+
+  localStorage.setItem("user", JSON.stringify(todoArray)); // save to local storage
+  updateTodoList(); // update list
+}
+
+function updateTodoList() {
+  todoList.innerHTML = "";
+  todoArray.forEach((task) => {
+    let li = createTodoItem(task);
+
+    todoList.append(li);
+  });
+}
+
+function createTodoItem(task) {
+  const Li = document.createElement("li");
+  Li.classList.add("task-app-item");
+
+  Li.innerHTML = `
+    <span>${task.text}</span>
     <button type="button" class='task-app-button'>Delete</button>
   `;
 
-  //+ Додатково: Стилізація виконаної задачи
-  li.addEventListener("click", (e) => {
-    // Якщо клік був по кнопці видалення — не робимо нічого
+  Li.addEventListener("click", (e) => {
     if (e.target.classList.contains("task-app-button")) return;
-    li.classList.toggle("active");
+    Li.classList.toggle("active");
   });
 
-  // Add delete functionality
-  const deleteButton = li.querySelector(".task-app-button");
-  deleteButton.addEventListener("click", () => li.remove());
+  const deleteButton = Li.querySelector(".task-app-button");
+  deleteButton.addEventListener("click", () => {
+    todoArray = todoArray.filter((item) => item.id !== task.id);
 
-  todoList.append(li);
+    localStorage.setItem("user", JSON.stringify(todoArray));
+    updateTodoList();
+    // _Li.remove();
+  });
 
-  todoInput.value = "";
+  return Li;
 }
-
-todoButton.addEventListener("click", fnTodoList);
-
-//+ Додатково: додавання завдяки клавіатури
-todoInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") fnTodoList();
-});
-
-const obj = {
-  name: "Jack",
-  age: 25,
-  surname: "Sparrow",
-};
-
-localStorage.setItem("user", JSON.stringify(obj));
-console.log(localStorage.getItem("user"));
-
-const user = JSON.parse(localStorage.getItem("user"));
-
-/*
-  Зверни уважу що нам не потрібно, робити код складніше та брати всі кнопки .task-app-button / Коли ми використовуємо li.querySelector тоді 
-  ми створіємо для кожного li власний слухач подій
-
-  const delteButtons = document.querySelectorAll('.remove-btn').
-  delteButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.target.parentElement.remove();
-      });
-  });
-...........................................................
-Додаткова умова потрібна для того щоб не було непотрібних операцій з додаванням классу за натиском на кнопку видалення, тому що кнопка видалення
-також знаходится у єлементі.
-if (e.target.classList.contains("task-app-button")) return;
-
-
-*/
