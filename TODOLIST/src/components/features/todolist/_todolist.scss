@@ -1,0 +1,65 @@
+@use "@shared/settings/scss/variables/colors/_color.scss" as *;
+
+.todo {
+  margin-top: 2rem;
+  background: var(--main-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &__form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #fff;
+      border-radius: 4px;
+      color: $white;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: $white;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1b5bcc;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+
+    & span {
+      flex: 1;
+    }
+
+    &.active span {
+      text-decoration: line-through;
+      color: green;
+    }
+
+    button {
+      background-color: var(--cancel-color);
+      color: $white;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}

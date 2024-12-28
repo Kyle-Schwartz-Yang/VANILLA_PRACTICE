@@ -1,82 +1,16 @@
-@use "../shared/settings/template/_template.scss";
+// --------------------------------------------------
+
+@use "@shared/settings/template/_template.scss";
 
 // --------------------------------------------------
-@use "../features/tab/_tab.scss";
-// ---------------------------------------------------
 
-.todo-app {
-  margin-top: 2rem;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+@use "@features/todolist/_todolist.scss";
 
-.todo-app__title {
-  text-align: center;
-  color: #333;
-  margin-bottom: 1rem;
-}
+// --------------------------------------------------
 
-.todo-app__input {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
+.hero {
+  border: 1px solid black;
+  padding: 4rem;
 
-input[type="text"] {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-button {
-  padding: 10px;
-  background-color: #2a7aef;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #1b5bcc;
-}
-
-// -----------------------------------------
-
-.task-app__list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.task-app-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  color: black;
-  cursor: pointer;
-}
-
-.task-app-item:last-child {
-  border-bottom: none;
-}
-
-.task-app-item .task-app-button {
-  background: red;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.task-app-item.active span {
-  // border: 1px solid red;
-  text-decoration: line-through; /* Перекреслює текст */
-  color: green; /* Змінює колір тексту */
-}
-
-.task-app-item {
-  // border: 1px solid red;
+  // background: url("@/video/cream.mp4") no-repeat center center/cover;
 }

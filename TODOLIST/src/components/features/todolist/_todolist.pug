@@ -1,0 +1,23 @@
+
+
+//- 
+  div(class='todo-app')
+    h1.todo-app__title To do List
+  //- todo-app__input може бути формою, все інше без змін
+  form(id='todo-form' class='todo-app__input')
+    input(id='task-app-input' type="text", placeholder='Add a new task' autocomplete='off')
+    button(id='task-app-button' type="sumbit") Add
+  ul(id='task-app-list' class='task-app__list')
+//- 
+
+
+mixin Todolist()
+  div.todo
+    form(class='todo__form' id='todo-form')
+      input(type='text', class='todo__input' id='todo-input' placeholder='Add a new task', autocomplete='off')
+      button(type='submit' class='todo__button' id='todo-button') Add
+    ul(class='todo__list' id='todo-list')
+
+
+
+

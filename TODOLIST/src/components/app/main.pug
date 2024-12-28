@@ -3,17 +3,22 @@ extends ../shared/settings/template/_template.pug
 //-: --------------------------------------Наследование шаблона 
 
 
+//- ! Подключение component
+include ../features/todolist/_todolist.pug
+
+include ../features/todolist/_todolist.pug
+//- ! Подключение component
 
 
 //-: --------------------------------------BODY
 
 block content
-  div(class='todo-app')
-    h1.todo-app__title To do List
-    //- todo-app__input може бути формою, все інше без змін
-    form(id='todo-form' class='todo-app__input')
-      input(id='task-app-input' type="text", placeholder='Add a new task' autocomplete='off')
-      button(id='task-app-button' type="sumbit") Add
-    ul(id='task-app-list' class='task-app__list')
-    
-    
+  section.hero
+    .hero__container
+      h1.hero__title TODOLIST
+
+      //-: --------------------------------------Подключение компонента
+      +Todolist()
+      //-: --------------------------------------Подключение компонента
+
+
